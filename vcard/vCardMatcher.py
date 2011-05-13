@@ -20,6 +20,7 @@ def find(f, seq):
 			return item
 	return None
 
+		#^0-9^_^\s^,^\.
 nonWordExpr = re.compile(u"[0-9_,\.\s\(\)]+",re.IGNORECASE|re.UNICODE)
 firstEmailPart = re.compile(u"([^@]*)@.*")
 emailExpr = re.compile(u"[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}",re.IGNORECASE|re.UNICODE)
@@ -27,6 +28,8 @@ emailExpr = re.compile(u"[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}",re.IGNORECASE|r
 def getWords(input):
 	return nonWordExpr.split(input)
 
+#	def getIntersection(self,x,y):
+#		return set(x)&set(y)
 def isEmail(input):
 	return emailExpr.match(input)
 	
