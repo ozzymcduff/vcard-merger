@@ -11,14 +11,6 @@ class vCard:
 		self.apple=False
 		pass
 	
-#	def __cmp__(self, other):
-#		return vCardHelper.getvCardNames(self).__cmp__( vCardHelper.getvCardNames(other) )
-	
-#	def similarity(self,other):
-#		return len( vCardHelper.getvCardNames(self) & vCardHelper.getvCardNames(other) )
-	
-#	def __hash__(self):
-#		return vCardHelper.getvCardNames(self).__hash__()
 	def __str__(self):
 		return u"%(name)s : %(emails)s"%{"name":self.name,"emails":"; ".join(self.emails)}
 		

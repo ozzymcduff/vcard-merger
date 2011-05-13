@@ -8,8 +8,6 @@ class vCardWithMatches():
 		self.name   = set(filter(lambda y:len(y)>2,getWords(vcard.name.lower())))
 		self.emails = set(vcard.emails)
 		self.apple  = vcard.apple
-		#self.vcards = []
-		#self.vcards.append(vcard)
 	
 	def mergevCard(self,vcard):
 		self.name.update(set(filter(lambda y:len(y)>2,getWords(vcard.name.lower()))))
