@@ -11,7 +11,9 @@ Copyright (c) 2009 Gewalli. All rights reserved.
 import sys
 import os
 import vobject
-from vCardMatcher import *
+
+from vcard.vCard import *
+from vcard.vCardWithMatches import *
 import math
 
 def main():
@@ -32,17 +34,16 @@ def main():
 	#print dir()
 	#print vobject.readOne(f)
 	#pass
-	matcher = vCardMatcher()
 	applelist = []
 	#print dir(applelist)
 	for x in vobject.readComponents(file("vCard-kort.vcf")):
-		card=matcher.parsevCard(x)
+		card=parsevCard(x)
 		card.apple = True
 		applelist.append(vCardWithMatches(card))
 	
 	googlelist = []
 	for x in vobject.readComponents(file("contacts.vcf")):
-		card = matcher.parsevCard(x)
+		card = parsevCard(x)
 		card.apple = False
 		googlelist.append(vCardWithMatches(card))
 	
