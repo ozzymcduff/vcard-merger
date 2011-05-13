@@ -17,25 +17,7 @@ from vcard.vCardWithMatches import *
 import math
 
 def main():
-#	print dir(vobject)
-	#print dir(vobject.)
-#	f = file("apple_vCards.vcf")
-	#for line in f:
-#	one = vobject.readOne(f)
-#	print one.n
-#	print one.n.value
-#	print """!"""
-
-#	print dir(one.n)
-#	print dir(one)
-#	print """!"""
-#	print one.getChildValue('n','')
-
-	#print dir()
-	#print vobject.readOne(f)
-	#pass
 	applelist = []
-	#print dir(applelist)
 	for x in vobject.readComponents(file("vCard-kort.vcf")):
 		card=parsevCard(x)
 		card.apple = True
@@ -47,8 +29,6 @@ def main():
 		card.apple = False
 		googlelist.append(vCardWithMatches(card))
 	
-
-		
 	
 	merged = []
 	all = []
@@ -72,16 +52,9 @@ def main():
 	import codecs
 	f = codecs.open('result.txt', encoding='utf-16', mode='w+')
 	
-	#f = open("result.txt",'w')
-	#f.write( codecs.BOM_UTF8 )
 	
 	try:
 		for x in merged:
-			#if len(x.name)!=0:
-			#	name = x.name
-			#else:
-			#	name = "#"
-			#print x
 			if (len(x.name)>0 and len(x.emails)>0 and x.apple):
 				
 				f.write(unicode( u"%(name)s: %(emails)s\n"%{"name":list(x.name), "emails":list(x.emails)}))
